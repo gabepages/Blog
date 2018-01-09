@@ -10,6 +10,8 @@
 
     <!--Description-->
     
+        <meta name="description" content="After returning to work from the holiday break, I began to work on a local Magento 1 site that had the TLD .dev. I quickly discovered something was wr">
+    
 
     <!--Author-->
     
@@ -17,6 +19,8 @@
     
 
     <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Chrome 63: The End of .dev for Local Environments"/>
     
 
     <!--Open Graph Site Name-->
@@ -29,7 +33,7 @@
 
     <!-- Title -->
     
-    <title>Gabe Pages | Blog</title>
+    <title>Chrome 63: The End of .dev for Local Environments - Gabe Pages | Blog</title>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/sass/main.css">
@@ -100,29 +104,46 @@
             <div class="inner">
 
                 <!-- Main Content -->
-                <header>
-    <h1>This is my blog, where I try to document my <br>thoughts, ideas, and experiences. Enjoy.</h1>
-    <p></p>
-</header>
+                
 
-<section class="tiles">
+    <h1 class="title">Chrome 63: The End of .dev for Local Environments</h1>
+    <div class="meta">
+        January 4, 2018
+    </div>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>After returning to work from the holiday break, I began to work on a local Magento 1 site that had the TLD <em>.dev</em>. I quickly discovered something was wrong. After struggling for about an hour to figure out why Chrome was giving me issues and Safari was not, I learned that since the release of Chrome 63, <em>.dev</em> is now redirected to HTTPS via HSTS (HTTP Strict Transport Security) and that was the cause of my problems. In this post I will quickly go over how to update your local Magento 1 site using MAMP. If you want to learn more about this change please visit Mattias Geniar’s <a href="https://ma.ttias.be/chrome-force-dev-domains-https-via-preloaded-hsts/" target="_blank" rel="noopener">article</a> on it that goes into more detail.</p>
+<h2 id="1-Update-host-name-on-MAMP"><a href="#1-Update-host-name-on-MAMP" class="headerlink" title="1. Update host name on MAMP"></a>1. Update host name on MAMP</h2><p>You will want to change the TLD to something else like <em>.localhost</em></p>
+<p><img src="/images/update-host-name.png" alt=""></p>
+<h2 id="2-Update-core-config-data-in-DB"><a href="#2-Update-core-config-data-in-DB" class="headerlink" title="2. Update core_config_data in DB"></a>2. Update core_config_data in DB</h2><p>Next you will want to update the web/unsecure/base_url and web/secure/base_url in the core_config_data table of your database to match the host name in MAMP.</p>
+<p><img src="/images/update-core-config-data-table.png" alt=""></p>
+<h2 id="3-Clear-var-folder"><a href="#3-Clear-var-folder" class="headerlink" title="3. Clear var folder"></a>3. Clear var folder</h2><p>Lastly, you will will want to clean your var folder from the <em>root of your project</em> with the following command (Do not delete var/log/):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf var/cache var/session var/report</span><br></pre></td></tr></table></figure>
+<p>After that step, you should be able to go back to Chrome and refresh the page with the new TLD, in this case <em>example.localhost</em>, and everything should back to normal.</p>
+<p>If you have any questions related to this or anything else, feel free to <a href="https:www.twitter.com/gabepages55" target="_blank" rel="noopener">tweet</a> me or shoot me an <a href="mailto:gbpages55@gmail.com" target="_blank" rel="noopener">email</a>.</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/MAMP-PRO/" class="button small">MAMP PRO</a> <a href="/tags/MAMP/" class="button small">MAMP</a> <a href="/tags/Google-Chrome/" class="button small">Google Chrome</a> <a href="/tags/Magento/" class="button small">Magento</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
     
-        
 
-<article class="style1">
-    <span class="image">
-        <img src="https://picsum.photos/450?image=1053" alt="" />
-    </span>
-    <a href="/2018/01/04/dev-tld/">
-        <h2>Chrome 63: The End of .dev for Local Environments</h2>
-        <div class="content">
-            <p></p>
-        </div>
-    </a>
-</article>
-    
-</section>
 
+</div>
 
 
 
